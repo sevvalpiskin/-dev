@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ödev.VKI"
+             Title="Vücut Kitle İndeksi Hesaplama"
+             BackgroundColor="#FADADD">
+
+    <StackLayout Padding="30" Spacing="20" VerticalOptions="CenterAndExpand">
+
+        <Label Text="Cinsiyet Seçin" FontSize="Small" HorizontalOptions="Center" TextColor="#6A0DAD" />
+        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
+            <RadioButton x:Name="CinsiyetErkek" Content="Erkek" GroupName="Cinsiyet" />
+            <RadioButton x:Name="CinsiyetKadin" Content="Kadın" GroupName="Cinsiyet" />
+        </StackLayout>
+
+        
+        <Label Text="Kilo (kg)" FontSize="Small" HorizontalOptions="Center" TextColor="#6A0DAD" />
+        <Entry x:Name="KiloGirdisi" Keyboard="Numeric" Placeholder="Kilonuzu girin" 
+               FontSize="Small" HeightRequest="30" WidthRequest="150" HorizontalOptions="Center"
+               BackgroundColor="White" />
+        
+
+        
+        <Label Text="Boy (cm)" FontSize="Small" HorizontalOptions="Center" TextColor="#6A0DAD" />
+        <Entry x:Name="BoyGirdisi" Keyboard="Numeric" Placeholder="Boyunuzu girin" 
+               FontSize="Small" HeightRequest="30" WidthRequest="150" HorizontalOptions="Center" 
+               BackgroundColor="White" />
+        
+
+     
+        <Button Text="Hesapla" Clicked="VkiHesapla" BackgroundColor="#FFD700" TextColor="White" CornerRadius="8" Padding="8" HorizontalOptions="Center" />
+
+        <Label Text="Vücut Kitle İndeksi (VKİ):" FontSize="Small" HorizontalOptions="Center" Margin="0,20,0,10" TextColor="#6A0DAD" />
+        <Label x:Name="VkiLabel" Text="0" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#8A2BE2" />
+
+        <Frame BorderColor="#8A2BE2" Padding="10" CornerRadius="8" HorizontalOptions="Center">
+            <Label x:Name="KategoriLabel" Text="Kategoriniz: " FontSize="Small" HorizontalOptions="Center" TextColor="#8A2BE2" />
+        </Frame>
+
+    </StackLayout>
+</ContentPage>

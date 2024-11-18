@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ödev.TaskList"
+             Title="Yapılacaklar Listesi"
+             BackgroundColor="#FADADD">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        
+        <Label Text="To Do List" 
+               FontSize="28" 
+               HorizontalOptions="Center" 
+               TextColor="Black" 
+               FontAttributes="Bold" 
+               VerticalOptions="Start" 
+               Margin="0,10" 
+               Grid.Row="0" 
+               Grid.Column="0" />
+
+        
+        <CollectionView x:Name="GorevlerCollectionView" 
+                        ItemsSource="{Binding Gorevler}" 
+                        SelectionMode="None"
+                        Margin="0,20,0,0" 
+                        Grid.Row="1" 
+                        Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#1D3557" BackgroundColor="White" Padding="10" Margin="0,5"
+                           CornerRadius="15" HasShadow="True" WidthRequest="500" HeightRequest="130">
+                       
+                        <StackLayout Spacing="15">
+                            
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Spacing="10">
+                                <CheckBox IsChecked="{Binding Tamamlandi}" 
+                                          VerticalOptions="Center" 
+                                          Color="DeepPink" />
+                                <Label Text="{Binding GorevAdı}" 
+                                       VerticalOptions="Center" 
+                                       TextColor="#333333" 
+                                       FontSize="18" 
+                                       HorizontalOptions="Start" />
+                                
+                            </StackLayout>
+
+                            
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Spacing="10" VerticalOptions="End">
+                                <Button Text="Düzenle" 
+                                        BackgroundColor="Red" 
+                                        TextColor="White" 
+                                        CornerRadius="5" 
+                                        Clicked="GorevDuzenle" 
+                                        CommandParameter="{Binding .}" />
+                                <Button Text="Sil" 
+                                        BackgroundColor="Green" 
+                                        TextColor="White" 
+                                        CornerRadius="5" 
+                                        Clicked="GorevSil" 
+                                        CommandParameter="{Binding .}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+       
+        <Frame x:Name="GorevEkleKutu" 
+               BackgroundColor="White" 
+               Padding="15"
+               CornerRadius="10" 
+               BorderColor="#1D3557" 
+               HasShadow="True" 
+               IsVisible="False"
+               Margin="0,50,0,0" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               WidthRequest="300"
+               Grid.Row="1" 
+               Grid.Column="0">
+            <StackLayout>
+               
+                <Frame BorderColor="#1D3557" BackgroundColor="White" Padding="5" CornerRadius="10" HasShadow="True">
+                    <Entry x:Name="YeniGorevEntry" 
+                           Placeholder="Yeni Görev Ekle" 
+                           FontSize="16" 
+                           HeightRequest="50"/>
+                </Frame>
+
+                
+                <Button Text="Görevi Kaydet" 
+                        BackgroundColor="Black" 
+                        TextColor="White" 
+                        FontSize="16" 
+                        Clicked="GorevKaydet" 
+                        HeightRequest="50"/>
+            </StackLayout>
+        </Frame>
+
+      
+        <Button 
+                x:Name="gorev"
+                BackgroundColor="White" 
+                TextColor="White" 
+                FontSize="30" 
+                WidthRequest="60" 
+                HeightRequest="60" 
+                CornerRadius="30" 
+                VerticalOptions="End" 
+                HorizontalOptions="End" 
+                Padding="10"
+                Clicked="GorevEkleClicked" 
+                Margin="0,0,20,20"
+                Grid.Row="1"
+                Grid.Column="1">
+            <Button.ImageSource>
+                <FileImageSource File="add.png" />
+            </Button.ImageSource>
+        </Button>
+
+    </Grid>
+
+</ContentPage>

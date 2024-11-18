@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ödev.MainPage"
+             BackgroundColor="#FADADD">
+    
+
+    <StackLayout Padding="20" Spacing="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+
+        
+        <Frame BorderColor="DarkSlateGray" CornerRadius="10" Padding="10">
+            <Image Source="odevfoto.jpg" HeightRequest="350" WidthRequest="350" HorizontalOptions="Center" />
+        </Frame>
+
+       
+        <Label Text="Şevval PİŞKİN" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextColor="MidnightBlue" LineBreakMode="TailTruncation" />
+
+        
+        <Label Text="Bartın Üniversitesi Bilgisayar Mühendisliği" FontSize="22" HorizontalOptions="Center" TextColor="Black" LineBreakMode="WordWrap" />
+
+        
+        <Label Text="ÖDEV-1" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center" TextColor="MidnightBlue" />
+
+    </StackLayout>
+
+</ContentPage>
